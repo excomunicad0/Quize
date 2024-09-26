@@ -1,6 +1,5 @@
-const QuestionsServices = require('../services/QuestionsServices');
-
 const questionsRouter = require('express').Router();
+const QuestionsServices = require('../services/QuestionsServices');
 
 questionsRouter.get('/', async (req, res) => {
   try {
@@ -10,9 +9,5 @@ questionsRouter.get('/', async (req, res) => {
     res.status(500).json({ error: message })
   }
 })
-
-
-
-
 
 module.exports = questionsRouter;
