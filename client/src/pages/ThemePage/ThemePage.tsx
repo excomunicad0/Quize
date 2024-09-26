@@ -1,12 +1,14 @@
 import React from 'react';
-import styles from './TrackPage.module.css';
+import styles from './ThemePage.module.css';
+import { ThemeList } from '@/widgets/ThemeList';
+import QuestionList from '@/widgets/QuestionList/QuestionList';
 
 
-export function TrackPage () {
+export function ThemePage () {
     return (
         <div className={styles.container}>
-            <TrackForm/>
-            <TrackList/>
+            <ThemeList/>
+            <QuestionList/>
         </div>
     )
 }

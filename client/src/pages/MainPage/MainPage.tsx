@@ -1,5 +1,17 @@
 import React from "react";
 
+
+
 export function MainPage() {
-  return <div>MainPage</div>;
+    const navigate = useNavigate();
+
+    const handleStartGame = () => {
+        navigate('/game');
+    }
+
+  return (
+    <div>
+      <button onClick={handleStartGame}>Начать игру</button>
+    </div>
+  );
 }
