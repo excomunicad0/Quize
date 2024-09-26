@@ -2,10 +2,9 @@
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class GameUser extends Model {
-    static associate({ Game, User, Question }) {
+    static associate({ Game, Question }) {
       this.belongsTo(Game, { foreignKey: 'gameId' });
-      this.belongsTo(User, { foreignKey: 'userId' });
-      this.hasMany(Question, { foreignKey: 'gameId' });
+      this.belongsTo(Question, { foreignKey: 'questionId' });
     }
   }
   GameUser.init(
