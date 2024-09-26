@@ -24,13 +24,13 @@ export const refreshAccessToken = createAsyncThunk<
 
 export const signUp = createAsyncThunk<
   AuthResponse,
-  { name: string; email: string; password: string; avatar: string },
+  { name: string; email: string; password: string; },
   { rejectValue: RejectValue }
 >(
   "user/signUp",
-  async ({ name, email, password, avatar }, { rejectWithValue }) => {
+  async ({ name, email, password }, { rejectWithValue }) => {
     try {
-      return await UserServices.signUp(name, email, password, avatar);
+      return await UserServices.signUp(name, email, password );
     } catch (error) {
       const err = error as AxiosError<{ message: string }>;
       return rejectWithValue({

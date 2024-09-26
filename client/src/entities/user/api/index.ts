@@ -27,16 +27,14 @@ export class UserServices {
     static async signUp(
         name: string,
         email: string,
-        password: string,
-        avatar: string
+        password: string
         
     ): Promise<{accessToken: string, user: User}> {
         
         const response = await axiosInstance.post('/auth/signup', {
             name,
             email,
-            password,
-            avatar
+            password
         })
         
         setAccessToken(response.data.accessToken)
