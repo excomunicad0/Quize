@@ -8,6 +8,11 @@ class AnswersServices {
     return ans ? ans.get() : null;
   };
 
+  static getAnswersByQuestionsId = async (questionId) => {
+    const answers = await Answer.findAll({ where: { questionId } })
+    return answers ? answers.map(answer => answer.get()) : null
+  }
+
 }
 
 module.exports = AnswersServices
