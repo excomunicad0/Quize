@@ -1,11 +1,10 @@
-
 import { axiosInstance } from "@/shared/lib/axiosInstance";
 
 
-export class QuestionService {
-    static async getQuestions() {
+export class QuestionServices {
+    static getQuestions = async () => {
         try {
-            const response = await axiosInstance.get("/questions"); 
+            const response = await axiosInstance.get("/questions");
             return response.data;
         } catch (error) {
             console.error("Error fetching questions:", error);
@@ -13,4 +12,3 @@ export class QuestionService {
         }
     }
 }
-

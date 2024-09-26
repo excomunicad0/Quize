@@ -20,6 +20,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
+    
+
     /* Path aliases my settings */
     "baseUrl": ".",
     "paths": {

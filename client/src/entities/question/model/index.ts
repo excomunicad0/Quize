@@ -1,10 +1,16 @@
 export type Question = {
-    id: number;
-    title: string;
-    image: string  
-    score: number
-    rightAnswer: string
-    themeId: number
-}
 
-export type QuestionList = Question[]
+  id: number;
+  themeId: number;
+  image: string;
+  title: string;
+  rightAnswer: string;
+  score: number;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type QuestionList = {
+  questions: Question[];
+};
+

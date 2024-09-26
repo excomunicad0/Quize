@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./ThemeItem.module.css";
 
-
 export const ThemeItem: React.FC<Props> = ({ theme }) => {
 
     return (
