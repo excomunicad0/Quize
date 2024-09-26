@@ -2,32 +2,22 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Questions', {
+    await queryInterface.createTable('Games', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      title: {
+      score: {
         allowNull: false,
-        type: Sequelize.TEXT,
+        type: Sequelize.INTEGER,
       },
-      image: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-        defaultValue:
-          'https://avatars.mds.yandex.net/i?id=0b9315290af2bf68938107ccd369ee7ad084fd7f9594cd2f-12593547-images-thumbs&n=13',
-      },
-      rightAnswer: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      themeId: {
+      userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Themes',
+          model: 'Users',
           key: 'id',
         },
         onDelete: 'CASCADE',
@@ -44,6 +34,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Questions');
+    await queryInterface.dropTable('Games');
   },
 };
