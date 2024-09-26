@@ -14,7 +14,6 @@ import { ROUTES } from '@/app/router/routes';
 interface IFormInputs {
   name: string;
   email: string;
-  avatar: string;
   password: string;
 }
 
@@ -22,7 +21,6 @@ const schema = yup
 .object({
   name: yup.string().required('Username is required'),
   email: yup.string().email('Invalid email format').required('Email is required'),
-  avatar: yup.string().required('Email is required'),
   password: yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
 })
 .required()
@@ -45,12 +43,11 @@ export const SignUpForm: React.FC = () => {
   const onSubmit: SubmitHandler<IFormInputs> = async ({
     name,
     email,
-    avatar,
     password,
   }) => {
     try {
     const resultAction = await dispatch(
-      signUp({ name, email, avatar, password })
+      signUp({ name, email, password })
     );
     unwrapResult(resultAction);
     navigate(ROUTES.HOME);
@@ -97,22 +94,6 @@ export const SignUpForm: React.FC = () => {
             {getStatusIcon('email')}
           </div>
           {errors.email && <p className={styles.error}>{errors.email.message}</p>}
-        </div>
-
-        <div className={styles.inputContainer}>
-          <label className={styles.label}>* Аватар</label>
-          <div className={styles.inputWithIcon}>
-            <input
-              className={styles.input}
-              placeholder='Загрузи аватар'
-              type='text'
-              {...register('avatar')}
-            />
-            {getStatusIcon('avatar')}
-          </div>
-          {errors.avatar && (
-            <p className={styles.error}>{errors.avatar.message}</p>
-          )}
         </div>
   
         <div className={styles.inputContainer}>

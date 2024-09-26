@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import styles from './Layout.module.css';
 // import { Footer } from '@/widgets/Footer';
-// import { Navbar } from '@/widgets/Navbar';
+import { Navbar } from '@/widgets/Navbar';
 // import { Sidebar } from '@/widgets/Sidebar';
 import { Outlet } from 'react-router-dom';
 import { useAppDispatch } from '@/shared/hooks/reduxhooks';
@@ -17,11 +17,12 @@ const Layout: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div>
+    <Navbar />
       <main >
         <Outlet />
       </main>
-    </>
+    </div>
   );
 };
 

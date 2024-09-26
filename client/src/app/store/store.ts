@@ -1,10 +1,12 @@
-import { userReducer } from "@/entities/user";
-import { configureStore } from "@reduxjs/toolkit";
+import { questionReducer } from '@/entities/question';
+import { userReducer } from '@/entities/user';
+import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({
-    reducer: {
-        user: userReducer,
-    },
+  reducer: {
+    user: userReducer,
+    // question: questionReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

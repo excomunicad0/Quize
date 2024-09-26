@@ -1,4 +1,5 @@
 export type Question = {
+
   id: number;
   themeId: number;
   image: string;
@@ -12,3 +13,4 @@ export type Question = {
 export type QuestionList = {
   questions: Question[];
 };
+

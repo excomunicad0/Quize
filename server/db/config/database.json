@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "sokol",
-    "password": "123",
+    "username": "postgres",
+    "password": "postgres",
     "database": "QuizePhase3",
     "host": "127.0.0.1",
     "dialect": "postgres"

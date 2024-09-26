@@ -1,0 +1,12 @@
+@import 'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap';
+@import './variables';
+
+h1 {
+    color: var(--text-primary);
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-large);
+  }
+
+  * {
+    font-family: var(--font-family-primary);
+  }
