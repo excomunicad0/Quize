@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const express = require('express');
+const path = require('path');
 
 
 const app = express();
@@ -19,6 +20,7 @@ const configureApp = () => {
   app.use(cookieParser());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
+  app.use(express.static(path.join(__dirname,'../public')));
   return app;
 };
 
