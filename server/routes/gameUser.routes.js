@@ -5,7 +5,7 @@ const gameUserRouter = require('express').Router();
 gameUserRouter.post('/', async (req, res) => {
   try {
     const { gameId, questionId, isRightAnswer } = req.body;
-    const gameUser = await GameUserServices.createMus({
+    const gameUser = await GameUserServices.CreateGameUser({
       gameId,
       questionId,
       isRightAnswer,

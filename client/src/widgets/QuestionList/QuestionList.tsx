@@ -10,10 +10,10 @@ export const QuestionList: React.FC = () => {
   // const { gamesUser } = useAppSelector((state) => state.gameUserList);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(getAllQuestions());
-    // dispatch(getAllGamesUser())
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getAllQuestions());
+  //   // dispatch(getAllGamesUser())
+  // }, [dispatch]);
 
   return (
     <div className={styles.container}>

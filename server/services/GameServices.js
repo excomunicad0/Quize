@@ -1,14 +1,19 @@
 const { Game } = require('../db/models');
 
 class GameServices {
-  static createGame = async () => {
-    const game = await Game.create();
+  static createGame = async ({userId}) => {
+    const game = await Game.create({userId});
     return game;
   };
 
   static updateGame = async ({id, score}) => {
-    const game = await Game.findByPk({id, score});
-    return game.get();
+    const game = await Game.findOne({ where: { id } });
+    if (game) {
+      return game.update({
+        score
+      });
+    }
+    return null;
   };
 }
 

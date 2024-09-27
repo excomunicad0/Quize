@@ -4,7 +4,7 @@ export class GameService {
   static async createGame() {
     try {
       const response = await axiosInstance.post("/games");
-      return response.data;
+      return response.data.game;
     } catch (error) {
       console.error("Error creating game:", error);
       throw new Error("Error creating game");
@@ -14,6 +14,8 @@ export class GameService {
   static async updateGame( gameId : number, score: number) {
     try {
       const response = await axiosInstance.put(`/games/${gameId}`, { score });
+
+      
       return response.data;
     } catch (error) {
       console.error("Error updating game:", error);
@@ -23,11 +25,15 @@ export class GameService {
 
   static async createGameUser( gameId : number, questionId : number, isRightAnswer: boolean) {
     try {
+      console.log(gameId, questionId, isRightAnswer, "AXIOS CREATE USER");
+      
       const response = await axiosInstance.post("/gameusers", {
         gameId,
         questionId,
         isRightAnswer
       });
+
+
 
       return response.data;
     } catch (error) {
