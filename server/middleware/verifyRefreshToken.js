@@ -1,5 +1,5 @@
-require("dotenv").config();
-const jwt = require("jsonwebtoken");
+require('dotenv').config();
+const jwt = require('jsonwebtoken');
 
 function verifyRefreshToken(req, res, next) {
   try {
@@ -8,10 +8,10 @@ function verifyRefreshToken(req, res, next) {
 
     res.locals.user = user;
     next();
-  // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line no-unused-vars
   } catch (error) {
-    console.log("Invalid refresh token");
-    res.clearCookie("refreshToken").status(401);
+    console.log('Invalid refresh token');
+    res.clearCookie('refreshToken').sendStatus(401);
   }
 }
 
