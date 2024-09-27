@@ -8,6 +8,7 @@ import { Answer } from "@/entities/answer/model";
 import { getAnswers } from "@/entities/answer/model/answerThunk";
 import { createGameUser, updateGame } from "@/entities/game/model/gameThunk";
 import { unwrapResult } from "@reduxjs/toolkit";
+import Button, { ThemeButton } from "@/shared/ui/Button/Button";
 
 type Props = {
   question: Question;
@@ -43,7 +44,7 @@ export const Game: React.FC<Props> = ({ question, setActive }) => {
         unwrapResult(updatedGame);
       } else {
         const updatedGame = await dispatch(
-          updateGame({ id: game.id, score: 0 })
+          updateGame({ id: game.id, score: -question.score })
         );
         unwrapResult(updatedGame);
       }
@@ -56,28 +57,38 @@ export const Game: React.FC<Props> = ({ question, setActive }) => {
 
   return (
     <div className={styles.container}>
-      <img src={question.image} width={"250px"} />
-      <h1>{question.title}</h1>
-      {answers &&
-        answers.map((answer: Answer) => (
-          <AnswerItem
-            key={answer.id}
-            answer={answer}
-            rightAnswer={question.rightAnswer}
-            setIsRightAnswer={setIsRightAnswer}
-            setIsAnswered={setIsAnswered}
-          />
-        ))}
-      {isAnswered && (
-        <div>
-          {isRightAnswer ? (
-            <h1>Верно!</h1>
-          ) : (
-            <h1>Неверно, правильный ответ: {question.rightAnswer}</h1>
-          )}
-          <button onClick={handleReturn}>Назад</button>
-        </div>
-      )}
+      <img width={600} className={styles.image} src={question.image} />
+      <div className={styles.content}>
+        <h1>{question.title}</h1>
+        {answers &&
+          !isAnswered &&
+          answers.map((answer: Answer) => (
+            <AnswerItem
+              key={answer.id}
+              answer={answer}
+              rightAnswer={question.rightAnswer}
+              setIsRightAnswer={setIsRightAnswer}
+              setIsAnswered={setIsAnswered}
+            />
+          ))}
+        {isAnswered && (
+          <div>
+            {isRightAnswer ? (
+              <div>
+                <h1>Верно!</h1>
+                <h1>+{question.score} очков</h1>
+              </div>
+            ) : (
+              <div>
+                <h1>Неверно, правильный ответ: {question.rightAnswer} </h1>
+              </div>
+            )}
+            <Button theme={ThemeButton.PRIMARY} onClick={handleReturn}>
+              <h1>Назад</h1>
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -31,6 +31,7 @@ const userSlice = createSlice({
             })
             .addCase(refreshAccessToken.rejected, (state) => {
                 state.loading = false;
+                state.user = null;
             })
 
 

@@ -18,8 +18,13 @@ const dispatch = useAppDispatch();
 
   return (
     <div className={styles.container}>
-      <h1>QUIZE</h1>
-      <Button theme={ThemeButton.PRIMARY} onClick={handleStartSession}>Начать игру</Button>
+      <h2>СВОЯ ИГРА</h2>
+      <br />
+      <Button theme={ThemeButton.PRIMARY} onClick={handleStartSession}><h1>Начать игру</h1></Button>
+      <br />
+      <p>©Windowody_Team</p>
+
+     
     </div>
   );
 };

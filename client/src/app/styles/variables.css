@@ -3,7 +3,7 @@
     --transparent: rgb(0 0 0 / 0%);
   
     /* primary colors */
-    --primary-basic-red: rgb(255 71 111 / 100%);
+    --primary-basic-red: #8243D6;
     --primary-basic-blue: #0050ff;
     --primary-basic-white: #fff;
     --primary-dark-gray: #1f1f1f;
@@ -39,9 +39,11 @@
   
     /* background colors */
   
-    --background-primary: #996ad68f;
+    --background-primary: #996ad6d6;
     --background-dark: #1f1f1f;
-    --background-secondary: #999;
+    --background-white: #ffffff;
+    --background-secondary: #ddc2ff
+    ;
     --background-dark-64: rgb(31 31 31 / 64%);
     --background-dark-48: rgb(31 31 31 / 48%);
     --background-dark-32: rgb(31 31 31 / 32%);
@@ -49,7 +51,7 @@
     --background-dark-8: rgb(31 31 31 / 8%);
   
     /* border colors */
-    --border-color: #ddd;
+    --border-color: #330570;
     --border-color-light: #e0e0e0;
     --border-color-dark: #000;
   

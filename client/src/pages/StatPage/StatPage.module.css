@@ -4,4 +4,7 @@
     align-items: center;
     text-align: center;
     background-color: var(--background-secondary);
+    height: 100vh;
+    padding-top: 300px;
+    font-size: 50px;
 }

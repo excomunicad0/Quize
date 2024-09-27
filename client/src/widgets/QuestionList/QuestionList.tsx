@@ -16,13 +16,12 @@ export const QuestionList: React.FC = () => {
   // }, [dispatch]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.list}>
+
+      <div className={styles.container}>
         {questions.map((question: Question) => (
           <QuestionItem key={question.id} question={question} />
         ))}
       </div>
-    </div>
   );
 };
 

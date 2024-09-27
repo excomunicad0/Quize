@@ -17,7 +17,9 @@ export const SignUpForm: React.FC = () => {
   const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const loading = useAppSelector(selectUserLoading);
+  const loading = useAppSelector((state) => state.user.loading);
+
+  
 
   const handleSubmit = async (values: {
     name: string;
