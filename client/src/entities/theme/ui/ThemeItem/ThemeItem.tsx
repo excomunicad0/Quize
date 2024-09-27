@@ -1,5 +1,11 @@
 import React from "react";
 import styles from "./ThemeItem.module.css";
+import { Theme } from '../../model';
+
+
+type Props = {
+    theme: Theme
+}
 
 export const ThemeItem: React.FC<Props> = ({ theme }) => {
 

@@ -15,18 +15,21 @@ export const Navbar: React.FC = () => {
     dispatch(logout());
   };
 
-  if(loading) {
-    return (
-      <div className={styles.container}>
-      <Loader />
-    </div>
-    )
-  }
+  // if(loading) {
+  //   return (
+  //     <div className={styles.container}>
+  //     <Loader />
+  //   </div>
+  //   )
+  // }
 
   return (
     <div className={styles.container}>
       <Button theme={ThemeButton.PRIMARY}>
         <Link to={ROUTES.HOME}>Главная</Link>
+      </Button>
+      <Button theme={ThemeButton.PRIMARY}>
+        <Link to={ROUTES.THEME}>ТЕМЫ</Link>
       </Button>
       {user ? (
         <>

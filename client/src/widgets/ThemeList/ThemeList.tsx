@@ -1,29 +1,26 @@
-import React, { useEffect } from 'react'
-import styles from './TrackList.module.css'
-import { useAppDispatch } from '@/shared/hooks/reduxhooks';
-
+import React, { useEffect } from 'react';
+// import styles from './TrackList.module.css'
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/reduxhooks';
+import { getAllThemes } from '@/entities/theme/model/themeThunk';
+import { ThemeItem } from '@/entities/theme';
 
 export const ThemeList: React.FC = () => {
-    const { themes } = useAppSelector((state) => state.themeList);
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
+  const { themes } = useAppSelector((state) => state.themeList);
 
-    useEffect(() => {
-        dispatch(getAllThemes());
-    }, [dispatch])
+  useEffect(() => {
+    dispatch(getAllThemes());
+  }, [dispatch]);
 
   return (
-    <div className={styles.container}>
-    <div className={styles.list}>
-      {themes &&
-        themes.map((theme) => (
-          <ThemeItem
-            key={theme.id}
-            theme={theme}
-          />
+    <div>
+      <div>
+        {themes.map((theme) => (
+          <ThemeItem key={theme.id} theme={theme} />
         ))}
+      </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default ThemeList
+export default ThemeList;

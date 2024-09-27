@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getAllQuestions } from './questionThunk';
 import { message } from 'antd';
+import { Question } from '.';
 
 type QuestionState = {
   questions: Question[];
@@ -35,3 +36,5 @@ const questionSlice = createSlice({
       })
   },
 });
+
+export default questionSlice.reducer;

@@ -1,21 +1,22 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Answer, AnswerList } from '.';
+import { AnswerServices } from '../api';
 import { AxiosError } from 'axios';
-import { ThemeList } from '.';
-import { ThemeServices } from '../api';
 
 type RejectValue = {
   message: string;
 };
 
-export const getAllThemes = createAsyncThunk<
-  ThemeList,
-  void,
+export const getAnswers = createAsyncThunk<
+  Answer[],
+  number,
   { rejectValue: RejectValue }
->('/theme/getThemes', async (_, { rejectWithValue }) => {
+>('answer/getAnswers', async (id, { rejectWithValue }) => {
   try {
-    return await ThemeServices.getThemes();
+    return await AnswerServices.getAnswers(id);
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;
+
     return rejectWithValue({
       message: err.response?.data.message || err.message,
     });
