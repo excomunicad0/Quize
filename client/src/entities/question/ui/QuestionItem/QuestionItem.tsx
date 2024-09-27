@@ -26,6 +26,7 @@ export const QuestionItem: React.FC<Props> = ({ question }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
+
         <button onClick={handleStartGame}>{question.title}</button>
         <p>{question.score}</p>
       </div>

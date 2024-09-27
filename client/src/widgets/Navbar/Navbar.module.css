@@ -1,11 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&display=swap");
+
 .container {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 40px;
-    border-bottom: 1px solid white;
-    background-color: #000000;
-  }
+  font-family: "Advent Pro", sans-serif;
+  font-optical-sizing: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  border-bottom: 1px solid white;
+  background-color: var(--background-primary);
+  
+  font-size: 30px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.logreg {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}

@@ -34,12 +34,15 @@ export const Navbar: React.FC = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.buttons}>
       <Button theme={ThemeButton.PRIMARY}>
-        <Link to={ROUTES.HOME}>Главная</Link>
+        <Link to={ROUTES.HOME} className={styles.link}>Главная</Link>
       </Button>
       <Button theme={ThemeButton.PRIMARY}>
-        <Link to={ROUTES.THEME}>ТЕМЫ</Link>
+        <Link to={ROUTES.THEME} className={styles.link}>ТЕМЫ</Link>
       </Button>
+      </div>
+      <div className={styles.logreg}>
       {user ? (
         <>
           <UserCard user={user} />
@@ -58,6 +61,7 @@ export const Navbar: React.FC = () => {
           </Button>
         </>
       )}
+      </div>
     </div>
   );
 };

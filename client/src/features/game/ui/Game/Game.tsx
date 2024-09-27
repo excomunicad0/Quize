@@ -56,6 +56,7 @@ export const Game: React.FC<Props> = ({ question, setActive }) => {
 
   return (
     <div className={styles.container}>
+      <img src={question.image} width={"250px"} />
       <h1>{question.title}</h1>
       {answers &&
         answers.map((answer: Answer) => (
