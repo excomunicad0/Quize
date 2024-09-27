@@ -1,11 +1,17 @@
+import { answerReducer } from '@/entities/answer';
+import { gameReducer } from '@/entities/game';
 import { questionReducer } from '@/entities/question';
+import { themeReducer } from '@/entities/theme';
 import { userReducer } from '@/entities/user';
 import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({
   reducer: {
     user: userReducer,
-    // question: questionReducer,
+    questionList: questionReducer,
+    themeList: themeReducer,
+    answerList: answerReducer,
+    game: gameReducer,
   },
 });
 

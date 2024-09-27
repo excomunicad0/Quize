@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { ROUTES } from './routes';
 import Layout from './Layout/Layout';
 import { SignInPage, SignUpPage } from '../../pages';
+import { ThemePage } from '@/pages/ThemePage';
 // import { ProtectedRoute } from '@/shared/ui/ProtectedRoute/ProtectedRoute';
 
 export const router = createBrowserRouter([
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.SIGNUP,
         element: <SignUpPage />,
+      },
+      {
+        path: ROUTES.THEME,
+        element: <ThemePage/>
       }
     ],
   },
