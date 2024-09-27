@@ -1,0 +1,7 @@
+.container {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: var(--background-secondary);
+}

@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&display=swap');
+@import './variables';
+
+  * {
+    font-family: "Advent Pro", sans-serif;
+    font-optical-sizing: auto;
+    /* color: var(--text-white) ; */
+  }
+
+  .main-content {
+    display: flex;
+    justify-content: center;
+    padding-top: 80px; 
+    padding-left: 20px; 
+    padding-right: 20px;
+    transition: padding-top 0.3s; 
+  }

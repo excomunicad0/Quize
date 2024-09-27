@@ -1,0 +1,28 @@
+import React, { useEffect } from 'react';
+import styles from './QuestionList.module.css';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/reduxhooks';
+import { QuestionItem } from '@/entities/question/ui/QuestionItem/QuestionItem';
+import { Question } from '@/entities/question/model';
+import { getAllQuestions } from '@/entities/question/model/questionThunk';
+
+export const QuestionList: React.FC = () => {
+  const { questions } = useAppSelector((state) => state.questionList);
+  // const { gamesUser } = useAppSelector((state) => state.gameUserList);
+  const dispatch = useAppDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getAllQuestions());
+  //   // dispatch(getAllGamesUser())
+  // }, [dispatch]);
+
+  return (
+
+      <div className={styles.container}>
+        {questions.map((question: Question) => (
+          <QuestionItem key={question.id} question={question} />
+        ))}
+      </div>
+  );
+};
+
+export default QuestionList;

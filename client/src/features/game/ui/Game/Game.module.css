@@ -1,0 +1,21 @@
+.container {
+    background-color: var(--background-white);
+    width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    max-height: 700px;
+}
+
+.image {
+    border: 3px solid var(--border-color);
+    border-radius: var(--border-radius-large);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}

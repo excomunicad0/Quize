@@ -1,0 +1,32 @@
+const GameUserServices = require('../services/gameUserServices');
+
+const gameUserRouter = require('express').Router();
+
+gameUserRouter.post('/', async (req, res) => {
+  try {
+    const { gameId, questionId, isRightAnswer } = req.body;
+    console.log(gameId, questionId, isRightAnswer, "GAMEUSER");
+    const gameUser = await GameUserServices.CreateGameUser({
+      gameId,
+      questionId,
+      isRightAnswer,
+    });
+    console.log(gameUser, "GAMEUSER2");
+    res.status(201).json({ gameUser });
+  } catch ({ message }) {
+    res.status(500).json({ error: message });
+  }
+});
+
+// gameUserRouter.get(`/:gameId`, async (req, res) => {
+//   try {
+//     const { gameId } = req.params;
+//     const gameUser = await GameUserServices.getGamesByUser(gameId);
+//     gameUser.map((game) => game.questionId);
+//     res.status(200).json({ gameUser });
+//   } catch ({ message }) {
+//     res.status(500).json({ error: message });
+//   }
+// });
+
+module.exports = gameUserRouter;
