@@ -38,7 +38,8 @@
     --text-white: #fff;
   
     /* background colors */
-    --background-primary: #fff;
+  
+    --background-primary: #996ad68f;
     --background-dark: #1f1f1f;
     --background-secondary: #999;
     --background-dark-64: rgb(31 31 31 / 64%);
