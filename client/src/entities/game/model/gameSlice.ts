@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { Game } from '.';
-import { createGame, createGameUser, updateGame } from './gameThunk';
-import { message } from 'antd';
+import { createSlice } from "@reduxjs/toolkit";
+import { Game } from ".";
+import { createGame, createGameUser, resetGame, updateGame } from "./gameThunk";
+import { message } from "antd";
 
 type GameState = {
   game: Game | null;
@@ -16,7 +16,7 @@ const initialState: GameState = {
 };
 
 const gameSlice = createSlice({
-  name: 'game',
+  name: "game",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -31,8 +31,8 @@ const gameSlice = createSlice({
       })
       .addCase(createGame.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload?.message || 'Failed to create game';
-        message.error(action.payload?.message || 'Failed to create game');
+        state.error = action.payload?.message || "Failed to create game";
+        message.error(action.payload?.message || "Failed to create game");
       })
       .addCase(updateGame.pending, (state) => {
         state.loading = true;
@@ -44,8 +44,8 @@ const gameSlice = createSlice({
       })
       .addCase(updateGame.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload?.message || 'Failed to update game';
-        message.error(action.payload?.message || 'Failed to update game');
+        state.error = action.payload?.message || "Failed to update game";
+        message.error(action.payload?.message || "Failed to update game");
       })
       .addCase(createGameUser.pending, (state) => {
         state.loading = true;
@@ -57,8 +57,21 @@ const gameSlice = createSlice({
       })
       .addCase(createGameUser.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload?.message || 'Failed to create game user';
-        message.error(action.payload?.message || 'Failed to create game user');
+        state.error = action.payload?.message || "Failed to create game user";
+        message.error(action.payload?.message || "Failed to create game user");
+      })
+      .addCase(resetGame.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(resetGame.fulfilled, (state) => {
+        state.loading = false;
+        state.game = null;
+        state.error = null;
+      })
+      .addCase(resetGame.rejected, (state) => {
+        state.loading = false;
+        state.error = "Failed to reset game";
+        message.error("Failed to reset game");
       });
   },
 });

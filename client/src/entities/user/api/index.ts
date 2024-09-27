@@ -8,6 +8,7 @@ export class UserServices {
         user: User
     }> {
         const response = await axiosInstance.get('/tokens/refresh')
+        console.log(response, "response");
         setAccessToken(response.data.accessToken)
         return response.data
     }

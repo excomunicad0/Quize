@@ -1,0 +1,12 @@
+.container {
+    border-radius: var(--border-radius-medium);
+    border: 3px solid var(--border-color);
+    padding: 5px;
+    margin: 15px;
+    text-align: center;
+    background-color: var(--background-white);
+}
+
+.image {
+    border-radius: var(--border-radius-large);
+}

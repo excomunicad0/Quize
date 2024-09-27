@@ -11,7 +11,7 @@ function verifyRefreshToken(req, res, next) {
   // eslint-disable-next-line no-unused-vars
   } catch (error) {
     console.log("Invalid refresh token");
-    res.clearCookie("refreshToken").status(401);
+    res.clearCookie("refreshToken").sendStatus(401);
   }
 }
 

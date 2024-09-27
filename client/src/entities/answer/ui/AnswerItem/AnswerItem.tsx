@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import styles from './AnswerItem.module.css';
 import { Answer } from '../../model';
+import Button, { ThemeButton } from '@/shared/ui/Button/Button';
 
 type Props = {
   answer: Answer;
@@ -23,7 +24,9 @@ export const AnswerItem: React.FC<Props> = ({
   };
   return (
     <div className={styles.container}>
-      <button onClick={handleCompare}>{answer.title}</button>
+      <Button theme={ThemeButton.PRIMARY} >
+      <h1 className={styles.title} onClick={handleCompare}>{answer.title}</h1>
+        </Button>
     </div>
   );
 };

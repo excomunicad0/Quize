@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-// import styles from './TrackList.module.css'
+import styles from './ThemeList.module.css'
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/reduxhooks';
 import { getAllThemes } from '@/entities/theme/model/themeThunk';
 import { ThemeItem } from '@/entities/theme';
@@ -13,13 +13,11 @@ export const ThemeList: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <div>
+      <div className={styles.container}>
         {themes.map((theme) => (
           <ThemeItem key={theme.id} theme={theme} />
         ))}
       </div>
-    </div>
   );
 };
 

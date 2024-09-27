@@ -22,6 +22,21 @@ export const createGame = createAsyncThunk<
   }
 });
 
+export const resetGame = createAsyncThunk<
+  Game,
+  void,
+  { rejectValue: RejectValue }
+>('game/resetGame', async (_, { rejectWithValue }) => {
+  try {
+    return await {game: null};
+  } catch (error) {
+    const err = error as AxiosError<{ message: string }>;
+    return rejectWithValue({
+      message: err.response?.data.message || err.message,
+    });
+  }
+});
+
 export const updateGame = createAsyncThunk<
   Game,
   { id: number; score: number },

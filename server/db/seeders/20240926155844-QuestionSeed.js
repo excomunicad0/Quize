@@ -10,7 +10,7 @@ module.exports = {
       image: "/img/1.jpeg",
       score: 100,
       rightAnswer: "Elbrus",
-      themeId: 1
+      themeId: 3
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ module.exports = {
       image: "/img/2.jpeg",
       score: 200,
       rightAnswer: "Я волнуюсь за ваши проекты",
-      themeId: 1
+      themeId: 3
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ module.exports = {
       image: "/img/img711.jpg",
       score: 300,
       rightAnswer: "Золушка",
-      themeId: 1
+      themeId: 3
     },
     {
       id: 4,
@@ -34,7 +34,7 @@ module.exports = {
       image: "/img/21.jpeg",
       score: 400,
       rightAnswer: "Катается на скейте",
-      themeId: 1
+      themeId: 3
     },
     {
       id: 5,
@@ -74,7 +74,7 @@ module.exports = {
       image: "/img/4.jpeg",
       score: 100,
       rightAnswer: "Таланта",
-      themeId: 3
+      themeId: 1
     },
     {
       id: 10,
@@ -82,7 +82,7 @@ module.exports = {
       image: "/img/15.jpeg",
       score: 200,
       rightAnswer: "Амантур",
-      themeId: 3
+      themeId: 1
     },
     {
       id: 11,
@@ -90,7 +90,7 @@ module.exports = {
       image: "/img/10.jpeg",
       score: 300,
       rightAnswer: "Артурик",
-      themeId: 3
+      themeId: 1
     },
     {
       id: 12,
@@ -98,7 +98,7 @@ module.exports = {
       image: "/img/3.jpeg",
       score: 400,
       rightAnswer: "Ростик",
-      themeId: 3
+      themeId: 1
     }], {});
 
   },
