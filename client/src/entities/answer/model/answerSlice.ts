@@ -4,7 +4,7 @@ import { getAnswers } from './answerThunk';
 import { message } from 'antd';
 
 type AnswerState = {
-  answers: Answer[];
+  answers: Answer[] | [];
   loading: boolean;
   error: string | null;
 };

@@ -7,11 +7,11 @@ static CreateGameUser = async ({
   gameId, questionId, isRightAnswer
 }) => {
 
-  const game = await GameUser.create({
+  const gameUser = await GameUser.create({
     gameId, questionId, isRightAnswer
   });
   
-  return game.get();
+  return gameUser.get();
 };
 
   // static getGamesByUser = async (userId, gameId) => {
