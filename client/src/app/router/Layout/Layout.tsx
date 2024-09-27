@@ -17,12 +17,12 @@ const Layout: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div>
     <Navbar />
       <main className="main-content">
         <Outlet />
       </main>
-    </>
+    </div>
   );
 };
 

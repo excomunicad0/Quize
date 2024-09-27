@@ -15,7 +15,7 @@ export const Navbar: React.FC = () => {
   const handlelogout = () => {
     dispatch(logout());
   };
-
+  
   const handleSignIn = () => {
     navigate(ROUTES.SIGNIN);
   };
@@ -36,6 +36,9 @@ export const Navbar: React.FC = () => {
     <div className={styles.container}>
       <Button theme={ThemeButton.PRIMARY}>
         <Link to={ROUTES.HOME}>Главная</Link>
+      </Button>
+      <Button theme={ThemeButton.PRIMARY}>
+        <Link to={ROUTES.THEME}>ТЕМЫ</Link>
       </Button>
       {user ? (
         <>

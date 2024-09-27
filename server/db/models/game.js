@@ -1,20 +1,21 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Score extends Model {
-    static associate({ User }) {
+  class Game extends Model {
+    static associate({ User, Question, GameUser }) {
       this.belongsTo(User, { foreignKey: 'userId' });
+      this.belongsToMany(Question, { through: GameUser, foreignKey: 'gameId' });
     }
   }
-  Score.init(
+  Game.init(
     {
       score: DataTypes.INTEGER,
       userId: DataTypes.INTEGER,
     },
     {
       sequelize,
-      modelName: 'Score',
+      modelName: 'Game',
     }
   );
-  return Score;
+  return Game;
 };
