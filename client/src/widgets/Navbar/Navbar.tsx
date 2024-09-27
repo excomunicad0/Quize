@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import { ROUTES } from '@/app/router/routes';
 import { logout, UserCard } from '@/entities/user';
@@ -10,9 +10,18 @@ import Loader from '@/shared/ui/Loader/Loader';
 export const Navbar: React.FC = () => {
   const { user, loading } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
 
   const handlelogout = () => {
     dispatch(logout());
+  };
+
+  const handleSignIn = () => {
+    navigate(ROUTES.SIGNIN);
+  };
+
+  const handleSignUp = () => {
+    navigate(ROUTES.SIGNUP);
   };
 
   if(loading) {
@@ -32,17 +41,17 @@ export const Navbar: React.FC = () => {
         <>
           <UserCard user={user} />
           <Button theme={ThemeButton.DANGER} onClick={handlelogout}>
-            Logout
+            Выйти
           </Button>
         </>
       ) : (
         <>
-          <Button theme={ThemeButton.PRIMARY}>
-            <Link to={ROUTES.SIGNIN}>Войти</Link>
+          <Button theme={ThemeButton.PRIMARY} onClick={handleSignIn}>
+            Войти
           </Button>
 
-          <Button theme={ThemeButton.PRIMARY}>
-            <Link to={ROUTES.SIGNUP}>Регистрация</Link>
+          <Button theme={ThemeButton.PRIMARY} onClick={handleSignUp}>
+            Регистрация
           </Button>
         </>
       )}
