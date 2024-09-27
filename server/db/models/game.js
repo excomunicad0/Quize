@@ -2,15 +2,28 @@
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Game extends Model {
-    static associate({ User, Question, GameUser }) {
+    static associate({ User, GameUser }) {
       this.belongsTo(User, { foreignKey: 'userId' });
-      this.belongsToMany(Question, { through: GameUser, foreignKey: 'gameId' });
+      this.hasMany(GameUser, { foreignKey: 'gameId' });
     }
   }
   Game.init(
     {
-      score: DataTypes.INTEGER,
-      userId: DataTypes.INTEGER,
+      score: {
+        allowNull: false,
+        defaultValue: 0,
+        type: DataTypes.INTEGER,
+      },
+      userId: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      },
     },
     {
       sequelize,

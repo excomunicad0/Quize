@@ -4,11 +4,11 @@ const { GameUser } = require('../db/models');
 class GameUserServices {
 
 static CreateGameUser = async ({
-  gameId, questionId, isRigthAnswer
+  gameId, questionId, isRightAnswer
 }) => {
 
-  let game = await GameUser.create({
-    gameId, questionId, isRigthAnswer
+  const game = await GameUser.create({
+    gameId, questionId, isRightAnswer
   });
   
   return game.get();

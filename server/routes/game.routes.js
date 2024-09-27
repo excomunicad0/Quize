@@ -1,9 +1,11 @@
+const verifyAccessToken = require('../middleware/verifyAccessToken');
 const GameServices = require('../services/GameServices');
 
 const router = require('express').Router();
 
-router.post('/', async (req, res) => {
-  const game = await GameServices.createGame();
+router.post('/',verifyAccessToken, async (req, res) => {
+  const {id} = res.locals.user
+  const game = await GameServices.createGame({userId: id});
   res.status(201).json({ game });
 });
 

@@ -19,7 +19,7 @@ const Layout: React.FC = () => {
   return (
     <div>
     <Navbar />
-      <main className="main-content">
+      <main >
         <Outlet />
       </main>
     </div>

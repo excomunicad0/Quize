@@ -4,15 +4,22 @@ import styles from "./QuestionItem.module.css";
 import { Question } from "../../model";
 import ModalWindow from "@/shared/ui/Modal/Modal";
 import Game from "@/features/game/ui/Game/Game";
+import { useDispatch } from "react-redux";
+import { getAnswers } from "@/entities/answer/model/answerThunk";
+import { unwrapResult } from "@reduxjs/toolkit/react";
 
 type Props = {
     question: Question
 }
 export const QuestionItem: React.FC<Props> = ({ question }) => {
     const [active, setActive] = useState(false)
+    const dispatch = useDispatch()
 
-    const handleStartGame = () => {
+    const handleStartGame = async () => {
         setActive(true)
+        const result = await dispatch(getAnswers(question.id));
+        const answers = unwrapResult(result);
+        // do something with answers
     }
 
     return (

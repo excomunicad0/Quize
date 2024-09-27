@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { AnswerItem } from "@/entities/answer/ui/AnswerItem/AnswerItem";
 import { Question } from "@/entities/question/model";
 import { Answer } from "@/entities/answer/model";
+import { getAnswers } from "@/entities/answer/model/answerThunk";
+import { createGameUser, updateGame } from "@/entities/game/model/gameThunk";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 type Props = {
   question: Question;
@@ -19,14 +22,12 @@ export const Game: React.FC<Props> = ({ question, setActive}) => {
   const [isAnswered, setIsAnswered] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(getAnswers(question.id));
-  }, []);
-
-  const handleReturn = () => {
-    if (isRightAnswer) {
-      await dispatch(createGameUser(game.id, question.id, isRightAnswer));
-      await dispatch(updateGame(game.id, question.score));
+  const handleReturn = async () => {
+    if (isRightAnswer && game) {
+      const gameUser = await dispatch(createGameUser({gameId: game.id,questionId: question.id, isRightAnswer}));
+      const updatedGame =  await dispatch(updateGame({id: game.id,score: question.score}));
+      unwrapResult(gameUser);
+      unwrapResult(updatedGame);
     }
     setIsAnswered(false);
     setIsRightAnswer(false);    
