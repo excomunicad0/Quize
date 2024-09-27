@@ -10,7 +10,7 @@ class GameServices {
     const game = await Game.findOne({ where: { id } });
     if (game) {
       return game.update({
-        score
+        score: game.score + score
       });
     }
     return null;

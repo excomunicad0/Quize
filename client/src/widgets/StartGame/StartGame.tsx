@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 export const StartGame: React.FC = () => {
   const navigate = useNavigate();
 const dispatch = useAppDispatch();
-  const handleStartGame = async () => {
+  const handleStartSession = async () => {
     await dispatch(createGame());
     await dispatch(getAllQuestions());
     navigate("/themes");
@@ -16,7 +16,7 @@ const dispatch = useAppDispatch();
   return (
     <div>
       <h1>QUIZE</h1>
-      <button onClick={handleStartGame}>Начать игру</button>
+      <button onClick={handleStartSession}>Начать игру</button>
     </div>
   );
 };

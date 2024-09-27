@@ -12,9 +12,9 @@ import { unwrapResult } from "@reduxjs/toolkit";
 type Props = {
   question: Question;
   setActive: (active: boolean) => void;
-}
+};
 
-export const Game: React.FC<Props> = ({ question, setActive}) => {
+export const Game: React.FC<Props> = ({ question, setActive }) => {
   const dispatch = useAppDispatch();
   const { answers } = useAppSelector((state) => state.answerList);
   const { game } = useAppSelector((state) => state.game);
@@ -23,14 +23,34 @@ export const Game: React.FC<Props> = ({ question, setActive}) => {
   const navigate = useNavigate();
 
   const handleReturn = async () => {
-    if (isRightAnswer && game) {
-      const gameUser = await dispatch(createGameUser({gameId: game.id,questionId: question.id, isRightAnswer}));
-      const updatedGame =  await dispatch(updateGame({id: game.id,score: question.score}));
+    console.log(game, "GAME");
+    console.log(question, "QUESTION");
+    console.log(isRightAnswer, "ANSWERS");
+
+    if (game) {
+      const gameUser = await dispatch(
+        createGameUser({
+          gameId: game.id,
+          questionId: question.id,
+          isRightAnswer,
+        })
+      );
       unwrapResult(gameUser);
-      unwrapResult(updatedGame);
+      if (isRightAnswer) {
+        const updatedGame = await dispatch(
+          updateGame({ id: game.id, score: question.score })
+        );
+        unwrapResult(updatedGame);
+      } else {
+        const updatedGame = await dispatch(
+          updateGame({ id: game.id, score: 0 })
+        );
+        unwrapResult(updatedGame);
+      }
     }
+
     setIsAnswered(false);
-    setIsRightAnswer(false);    
+    setIsRightAnswer(false);
     setActive(false);
   };
 
@@ -38,14 +58,13 @@ export const Game: React.FC<Props> = ({ question, setActive}) => {
     <div className={styles.container}>
       <h1>{question.title}</h1>
       {answers &&
-        answers.map((answer : Answer) => (
+        answers.map((answer: Answer) => (
           <AnswerItem
             key={answer.id}
             answer={answer}
             rightAnswer={question.rightAnswer}
             setIsRightAnswer={setIsRightAnswer}
             setIsAnswered={setIsAnswered}
-            
           />
         ))}
       {isAnswered && (
