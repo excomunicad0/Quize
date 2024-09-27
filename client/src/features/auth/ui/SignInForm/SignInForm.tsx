@@ -76,6 +76,8 @@ export const SignInForm: React.FC = () => {
             type='primary'
             htmlType='submit'
             disabled={loading}
+            id='button'
+            
           >
             {loading ? 'Выполняется...' : 'Войти'}
           </Button>

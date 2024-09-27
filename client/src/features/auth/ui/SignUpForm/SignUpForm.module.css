@@ -4,6 +4,7 @@
   align-items: center;
   height: 100vh;
   background-color: #f0f2f5;
+  background-color: var(--background-secondary);
 }
 
 .form {
@@ -37,7 +38,7 @@
 .button {
   width: 100%;
   padding: 12px;
-  background-color: #1890ff;
+  background-color: #530FAD;
   color: white;
   border: none;
   margin-top: 12px;
@@ -51,7 +52,7 @@
 }
 
 .button:hover {
-  background-color: #6a0dad;
+  background-color: #4F2982;
 }
 
 .buttonContainer {
