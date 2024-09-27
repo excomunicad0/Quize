@@ -1,20 +1,35 @@
-.Button {
-    cursor: pointer;
-    color: white;
-    border: none;
+  .Button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
   }
   
   .primary {
-    background-color: #24b050;
+    background-color: #007bff;
+    color: #fff;
   }
   
-  .secondary {
-    background-color: #6c757d;
+  .primary:hover {
+    background-color: #0056b3;
   }
   
   .danger {
-    background-color: #dc3545;
+    background-color: #dc3545; 
+    color: #fff;
+  }
+  
+  .danger:hover {
+    background-color: #c82333; 
+  }
+  
+  .button[disabled] {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
   }
